@@ -10,17 +10,17 @@ pipeline {
 
     // }
     environment{
-        DEV_SERVER='ec2-user@172.31.8.175'
-       IMAGE_NAME='devopstrainer/java-mvn-privaterepos:$BUILD_NUMBER'
+        DEV_SERVER='ec2-user@172.31.2.5'
+       IMAGE_NAME='nekkikevin/addbook_repo:$BUILD_NUMBER'
         //IMAGE_NAME='newaxisdevops.jfrog.io/addbook-docker/addbook:$BUILD_NUMBER'
-        DEPLOY_SERVER='ec2-user@172.31.7.50'
+        DEPLOY_SERVER='ec2-user@172.31.7.16'
     }
     stages {
         stage('Compile') {
             agent any
             steps {
                 echo 'Compiling the code'
-                echo "compiling in env: ${params.Env}"
+                //echo "compiling in env: ${params.Env}"
                 sh "mvn compile"
 
             }
@@ -29,7 +29,7 @@ pipeline {
             agent any
             steps {
                 echo 'Reviewing the code'
-                echo "Deploying the app version ${params.APPVERSION}"
+                //echo "Deploying the app version ${params.APPVERSION}"
                 sh "mvn pmd:pmd"
             }
             // post{
@@ -51,11 +51,7 @@ pipeline {
                 echo 'UnitTest the code'
                 sh "mvn test"
             }
-            post{
-                always{
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
+            
         }
         stage('CodeCoverage'){
             agent any
@@ -67,21 +63,7 @@ pipeline {
             }
         }
 
-        //  stage('Package and push to jfrog') {//slave2
-        //     //agent {label 'linux_slave'}
-        //     agent any
-        //     steps {
-        //         script{
-        //         sshagent(['slave2']) {
-        //         echo 'Package the code'
-        //         echo "Deploying the app version ${params.APPVERSION}"
-        //         sh "scp -o StrictHostKeyChecking=no server-script.sh ${DEV_SERVER}:/home/ec2-user"
-        //         sh "ssh -o StrictHostKeyChecking=no ${DEV_SERVER} 'bash /home/ec2-user/server-script.sh'"
-                
-        //     }
-        // }
-        //     }
-        //  }
+       
          stage('Containerise the and push to docker-hub') {//slave2
             //agent {label 'linux_slave'}
             agent any
