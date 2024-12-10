@@ -69,7 +69,7 @@ pipeline {
             agent any
             steps {
                 script{
-                sshagent(['slave2']) {
+                sshagent(['ec2']) {
                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password', usernameVariable: 'username')]) {
                   //withCredentials([usernamePassword(credentialsId: 'jfrog-cred', passwordVariable: 'password', usernameVariable: 'username')]) {
                 // echo 'Package the code'
