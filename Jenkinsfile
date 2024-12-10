@@ -96,8 +96,8 @@ pipeline {
             }
             steps {
                    script{
-                sshagent(['slave2']) {
-               withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password', usernameVariable: 'username')]) {
+                sshagent(['ec2']) {
+               withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
                     // withCredentials([usernamePassword(credentialsId: 'jfrog-cred', passwordVariable: 'password', usernameVariable: 'username')]) {
                 // echo 'Deploy the code'
                 // echo "Deploying the app version ${params.APPVERSION}"
