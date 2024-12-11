@@ -70,7 +70,7 @@ pipeline {
             steps {
                 script{
                 sshagent(['ec2']) {
-               withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password', usernameVariable: 'username')]) {
+               withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
                   //withCredentials([usernamePassword(credentialsId: 'jfrog-cred', passwordVariable: 'password', usernameVariable: 'username')]) {
                 // echo 'Package the code'
                 // echo "Deploying the app version ${params.APPVERSION}"
