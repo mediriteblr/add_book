@@ -67,7 +67,7 @@ pipeline {
             agent any
             steps {
                 script{
-                sshagent(['ec2']) {
+                sshagent(['jen']) {
                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
                   //withCredentials([usernamePassword(credentialsId: 'jfrog-cred', passwordVariable: 'password', usernameVariable: 'username')]) {
                 // echo 'Package the code'
@@ -94,7 +94,7 @@ pipeline {
             }
             steps {
                    script{
-                sshagent(['ec2']) {
+                sshagent(['jen']) {
                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
                     // withCredentials([usernamePassword(credentialsId: 'jfrog-cred', passwordVariable: 'password', usernameVariable: 'username')]) {
                 // echo 'Deploy the code'
