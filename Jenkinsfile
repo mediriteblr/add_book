@@ -41,11 +41,10 @@ pipeline {
          stage('UniTest') {//slave1
           // agent {label 'linux_slave'}
              agent any
-            
             steps {
                 script{
                     echo 'UnitTest the code'
-                sh "mvn test"
+                    sh "mvn test"
                 }
                 
             }
