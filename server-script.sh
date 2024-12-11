@@ -13,7 +13,7 @@ else
   git clone https://github.com/mediriteblr/add_book.git
 fi
 
-cd add_book
+#cd add_book
 # git checkout docker-nov
 # mvn package
 # mvn -U deploy -s settings.xml
