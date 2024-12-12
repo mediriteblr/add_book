@@ -5,7 +5,7 @@
     <groupId>com.preethidevops.tutorial</groupId>
     <artifactId>addressbook</artifactId>
     <packaging>war</packaging>
-    <version>8.0</version>
+    <version>7.0</version>
     <name>Vaadin Addressbook example</name>
 
     <properties>
@@ -195,12 +195,9 @@
             </execution>
          </executions>
       </plugin>
-		<plugin>
-	     <groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-war-plugin</artifactId>
-			<version>3.3.1</version>
-		</plugin>
-  	
+  
+
+			
 						<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -518,7 +515,7 @@
             </reporting>
         </profile>
     </profiles>
-	<distributionManagement>
+   <distributionManagement>
     <repository>
         <id>central</id>
         <name>a0w2moavv3ijs-artifactory-primary-0-releases</name>
