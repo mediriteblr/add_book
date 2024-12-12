@@ -522,8 +522,8 @@
 	<distributionManagement>
     <repository>
         <id>central</id>
-        <name>a0nefhmalf6hc-artifactory-primary-0-releases</name>
-        <url>https://trialy4un1n.jfrog.io/artifactory/tomcat-libs-release</url>
+        <name>a0w2moavv3ijs-artifactory-primary-0-releases</name>
+        <url>https://trial1srhto.jfrog.io/artifactory/zensarrepo-libs-release</url>
     </repository>
 </distributionManagement>
 </project>
